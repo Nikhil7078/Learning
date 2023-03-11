@@ -7,6 +7,7 @@ import { Product } from 'src/app/models/product.model';
   styles: [
   ]
 })
+  
 export class ProductBoxComponent implements OnInit {
   @Input() fullWidthMode = false;
 
@@ -17,6 +18,7 @@ export class ProductBoxComponent implements OnInit {
     description: 'Description',
     image: 'https://via.placeholder.com/150',
     category: 'shoes',
+    price:150
   };
 
   @Output() addToCart = new EventEmitter<Product>()     
@@ -25,8 +27,8 @@ export class ProductBoxComponent implements OnInit {
     
   ngOnInit(): void {
   }
+
   onAddCart():void {
     this.addToCart.emit(this.product);
   }
-
 }
