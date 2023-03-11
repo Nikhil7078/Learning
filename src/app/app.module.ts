@@ -23,6 +23,7 @@ import { FiltersComponent } from './pages/home/components/filters/filters.compon
 import { MatListModule } from '@angular/material/list';
 import { ProductBoxComponent } from './pages/home/components/product-box/product-box.component';
 import { CartComponent } from './pages/cart/cart.component'
+import { CartService } from './service/cart.service';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,7 @@ import { CartComponent } from './pages/cart/cart.component'
     MatListModule,
     MatButtonModule,
   ],
-  providers: [],
+  providers: [CartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
