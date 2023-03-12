@@ -1,4 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Product } from 'src/app/models/product.model';
 
 @Component({
   selector: 'app-filters',
@@ -12,13 +13,15 @@ export class FiltersComponent implements OnInit {
   constructor() { }
   
   @Output() showCategory = new EventEmitter<string>();
-
-  categories = ['shoes', 'sport'];
+  @Input() AllCategory :Array<string> | undefined;
 
   ngOnInit(): void {
   }
+
   onShowcategory(category : string): void 
   {
     this.showCategory.emit(category);
   }
+   
 }
+

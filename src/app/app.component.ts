@@ -1,13 +1,26 @@
 import { Component } from '@angular/core';
+import { Cart } from './models/cart.model';
+import { CartService } from './service/cart.service';
 
 @Component({
   selector: 'app-root',
   template: `
-  <app-header></app-header>
+  <app-header [cart] = "cart"></app-header>
   <router-outlet></router-outlet>
   `,
   styles: []
 })
-export class AppComponent {
-  title = 'store--routing--skip-test';
+
+export class AppComponent
+{
+  cart: Cart = { items: [] };
+  constructor(private cartService: CartService) { };
+  
+  ngOnInit() {
+    this.cartService.cart.subscribe((_cart) => {
+      this.cart = _cart;
+     })
+  }
 }
+
+
